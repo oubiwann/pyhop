@@ -17,14 +17,10 @@ It works in both Python 2.7 and 3.2.
 Pyhop was easy to implement (less than 150 lines of code), and if you understand the basic ideas of HTN planning ([this presentation](http://www.cs.umd.edu/~nau/papers/nau2013game.pdf) contains a quick summary),
 Pyhop should be easy to understand.
 
-Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/projects/shop/), but with these differences:
+Pyhop's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/projects/shop/), but with several differences that should make it easier to integrate it with ordinary computer programs:
 
-  - States of the world are represented using ordinary variable bindings, not logical propositions. A state is just a Python object that contains the variable bindings.  For example, you might write s.loc['v'] = 'd' to say that vehicle v is at location d in state s.
+  - Pyhop represents states of the world using ordinary variable bindings, not logical propositions. A state is just a Python object that contains the variable bindings.  For example, you might write s.loc['v'] = 'd' to say that vehicle v is at location d in state s.
   
-  - HTN operators and methods aren't written in a specialized language. Instead, they're ordinary Python functions. The current state (e.g., s in the above example) is passed to them as an argument.
-  
-  - Unlike SHOP, Pyhop doesn't do Horn-clause inference in the preconditions of the HTN methods and operators. It's easier to write the tests directly in Python.
-
-
+  - To write HTN operators and methods for Pyhop, you don't need to learn a specialized planning language. Instead, you write them as ordinary Python functions. The current state (e.g., s in the above example) is passed to them as an argument.
 
 
