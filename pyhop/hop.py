@@ -45,13 +45,13 @@ Pyhop provides the following classes and functions:
 
 - print_methods() will print out a list of all declared methods.
 
-- pyhop(state1,tasklist) tells Pyhop to find a plan for accomplishing tasklist
+- plan(state1,tasklist) tells Pyhop to find a plan for accomplishing tasklist
   (a list of tasks), starting from an initial state state1, using whatever
   methods and operators you declared previously.
 
-- In the above call to pyhop, you can add an optional 3rd argument called
-  'verbose' that tells pyhop how much debugging printout it should provide:
-- if verbose = 0 (the default), pyhop returns the solution but prints nothing;
+- In the above call to plan, you can add an optional 3rd argument called
+  'verbose' that tells plan how much debugging printout it should provide:
+- if verbose = 0 (the default), plan returns the solution but prints nothing;
 - if verbose = 1, it prints the initial parameters and the answer;
 - if verbose = 2, it also prints a message on each recursive call;
 - if verbose = 3, it also prints info about what it's computing.
