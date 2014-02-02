@@ -65,14 +65,29 @@ Call hop.plan(state1,[('travel','me','home','park')]) with different verbosity l
 """)
 
 print("- If verbose=0 (the default), Pyhop returns the solution but prints nothing.\n")
-hop.plan(state1,[('travel','me','home','park')])
+hop.plan(state1,
+         [('travel','me','home','park')],
+         hop.get_operators(),
+         hop.get_methods())
 
 print('- If verbose=1, Pyhop prints the problem and solution, and returns the solution:')
-hop.plan(state1,[('travel','me','home','park')],verbose=1)
+hop.plan(state1,
+         [('travel','me','home','park')],
+         hop.get_operators(),
+         hop.get_methods(),
+         verbose=1)
 
 print('- If verbose=2, Pyhop also prints a note at each recursive call:')
-hop.plan(state1,[('travel','me','home','park')],verbose=2)
+hop.plan(state1,
+         [('travel','me','home','park')],
+         hop.get_operators(),
+         hop.get_methods(),
+         verbose=2)
 
 print('- If verbose=3, Pyhop also prints the intermediate states:')
-hop.plan(state1,[('travel','me','home','park')],verbose=3)
+hop.plan(state1,
+         [('travel','me','home','park')],
+         hop.get_operators(),
+         hop.get_methods(),
+         verbose=3)
 
