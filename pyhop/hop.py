@@ -94,7 +94,10 @@ Pyhop provides the following classes and functions:
 # Pyhop. To run them, launch python and type "import blocks_world_examples"
 # or "import simple_travel_example".
 from __future__ import print_function
-import copy, sys, pprint
+import copy
+
+from pyhop.helpers import (
+    print_goal, print_methods, print_operators, print_state)
 
 
 ############################################################
@@ -109,30 +112,6 @@ class Goal():
     """A goal is just a collection of variable bindings."""
     def __init__(self,name):
         self.__name__ = name
-
-
-### print_state and print_goal are identical except for the name
-
-def print_state(state,indent=4):
-    """Print each variable in state, indented by indent spaces."""
-    if state != False:
-        for (name,val) in vars(state).items():
-            if name != '__name__':
-                for x in range(indent): sys.stdout.write(' ')
-                sys.stdout.write(state.__name__ + '.' + name)
-                print(' =', val)
-    else: print('False')
-
-def print_goal(goal,indent=4):
-    """Print each variable in goal, indented by indent spaces."""
-    if goal != False:
-        for (name,val) in vars(goal).items():
-            if name != '__name__':
-                for x in range(indent): sys.stdout.write(' ')
-                sys.stdout.write(goal.__name__ + '.' + name)
-                print(' =', val)
-    else: print('False')
-
 
 ############################################################
 # Commands to tell Pyhop what the operators and methods are
@@ -157,19 +136,11 @@ def declare_methods(task_name,*method_list):
     methods.update({task_name:list(method_list)})
     return methods[task_name]
 
-############################################################
-# Commands to find out what the operators and methods are
+def get_operators():
+    return operators
 
-def print_operators(olist=operators):
-    """Print out the names of the operators"""
-    print('OPERATORS:', ', '.join(olist))
-
-def print_methods(mlist=methods):
-    """Print out a table of what the methods are for each task"""
-    print('{:<14}{}'.format('TASK:','METHODS:'))
-    for task in mlist:
-        print('{:<14}'.format(task) + ', '.join(
-            [f.__name__ for f in mlist[task]]))
+def get_methods():
+    return methods
 
 ############################################################
 # The actual planner
