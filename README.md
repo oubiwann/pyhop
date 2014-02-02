@@ -36,6 +36,14 @@ $ python examples/blocks_world/run2.py
 ```
 
 
+## Changes from Version 1
+
+With versison 2.0, the following change were made:
+* code has now been converted to a Python package, complete with ``setup.py`` file
+* slight changes to the API have been made (the planner function ``pyhop`` has been ranamed to ``plan``)
+* slight changes to some of the helper functions have been made (added another parameter to help generalize)
+* examples have been moved into their own directory
+
 ## License
 ----
 
