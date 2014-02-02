@@ -62,19 +62,19 @@ state1.dist = {'home':{'park':8}, 'park':{'home':8}}
 
 print("""
 ********************************************************************************
-Call hop.hop(state1,[('travel','me','home','park')]) with different verbosity levels
+Call hop.plan(state1,[('travel','me','home','park')]) with different verbosity levels
 ********************************************************************************
 """)
 
 print("- If verbose=0 (the default), Pyhop returns the solution but prints nothing.\n")
-hop.hop(state1,[('travel','me','home','park')])
+hop.plan(state1,[('travel','me','home','park')])
 
 print('- If verbose=1, Pyhop prints the problem and solution, and returns the solution:')
-hop.hop(state1,[('travel','me','home','park')],verbose=1)
+hop.plan(state1,[('travel','me','home','park')],verbose=1)
 
 print('- If verbose=2, Pyhop also prints a note at each recursive call:')
-hop.hop(state1,[('travel','me','home','park')],verbose=2)
+hop.plan(state1,[('travel','me','home','park')],verbose=2)
 
 print('- If verbose=3, Pyhop also prints the intermediate states:')
-hop.hop(state1,[('travel','me','home','park')],verbose=3)
+hop.plan(state1,[('travel','me','home','park')],verbose=3)
 

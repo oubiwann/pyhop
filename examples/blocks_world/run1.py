@@ -38,16 +38,16 @@ hop.print_state(state1)
 print('')
 
 print('- these should fail:')
-hop.hop(state1,[('pickup','a')], verbose=1)
-hop.hop(state1,[('pickup','b')], verbose=1)
+hop.plan(state1,[('pickup','a')], verbose=1)
+hop.plan(state1,[('pickup','b')], verbose=1)
 print('- these should succeed:')
-hop.hop(state1,[('pickup','c')], verbose=1)
-hop.hop(state1,[('unstack','a','b')], verbose=1)
-hop.hop(state1,[('get','a')], verbose=1)
+hop.plan(state1,[('pickup','c')], verbose=1)
+hop.plan(state1,[('unstack','a','b')], verbose=1)
+hop.plan(state1,[('get','a')], verbose=1)
 print('- this should fail:')
-hop.hop(state1,[('get','b')], verbose=1)
+hop.plan(state1,[('get','b')], verbose=1)
 print('- this should succeed:')
-hop.hop(state1,[('get','c')], verbose=1)
+hop.plan(state1,[('get','c')], verbose=1)
 
 print("""
 ****************************************
@@ -83,8 +83,8 @@ hop.print_goal(goal1b)
 ### but those conditions will need to be achieved anyway
 
 
-hop.hop(state1,[('move_blocks', goal1a)], verbose=1)
-hop.hop(state1,[('move_blocks', goal1b)], verbose=1)
+hop.plan(state1,[('move_blocks', goal1a)], verbose=1)
+hop.plan(state1,[('move_blocks', goal1b)], verbose=1)
 
 print("""
 ****************************************
@@ -126,8 +126,8 @@ print('')
 ### goal2b omits some of the conditions of goal2a,
 ### but those conditions will need to be achieved anyway.
 
-hop.hop(state2,[('move_blocks', goal2a)], verbose=1)
-hop.hop(state2,[('move_blocks', goal2b)], verbose=1)
+hop.plan(state2,[('move_blocks', goal2a)], verbose=1)
+hop.plan(state2,[('move_blocks', goal2b)], verbose=1)
 
 
 print("""
@@ -156,4 +156,4 @@ goal3.clear = {17:True, 15:True, 12:True}
 hop.print_goal(goal3)
 print('')
 
-hop.hop(state3,[('move_blocks', goal3)], verbose=1)
+hop.plan(state3,[('move_blocks', goal3)], verbose=1)

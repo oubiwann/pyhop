@@ -168,17 +168,20 @@ def print_methods(mlist=methods):
     """Print out a table of what the methods are for each task"""
     print('{:<14}{}'.format('TASK:','METHODS:'))
     for task in mlist:
-        print('{:<14}'.format(task) + ', '.join([f.__name__ for f in mlist[task]]))
+        print('{:<14}'.format(task) + ', '.join(
+            [f.__name__ for f in mlist[task]]))
 
 ############################################################
 # The actual planner
 
-def hop(state,tasks,verbose=0):
+def plan(state,tasks,verbose=0):
     """
     Try to find a plan that accomplishes tasks in state.
     If successful, return the plan. Otherwise return False.
     """
-    if verbose>0: print('** hop, verbose={}: **\n   state = {}\n   tasks = {}'.format(verbose, state.__name__, tasks))
+    if verbose>0: print(
+        '** hop, verbose={}: **\n   state = {}\n   tasks = {}'.format(
+            verbose, state.__name__, tasks))
     result = seek_plan(state,tasks,[],0,verbose)
     if verbose>0: print('** result =',result,'\n')
     return result
@@ -203,7 +206,8 @@ def seek_plan(state,tasks,plan,depth,verbose=0):
             print('depth {} new state:'.format(depth))
             print_state(newstate)
         if newstate:
-            solution = seek_plan(newstate,tasks[1:],plan+[task1],depth+1,verbose)
+            solution = seek_plan(
+                newstate,tasks[1:],plan+[task1],depth+1,verbose)
             if solution != False:
                 return solution
     if task1[0] in methods:
@@ -211,11 +215,13 @@ def seek_plan(state,tasks,plan,depth,verbose=0):
         relevant = methods[task1[0]]
         for method in relevant:
             subtasks = method(state,*task1[1:])
-            # Can't just say "if subtasks:", because that's wrong if subtasks == []
+            # Can't just say "if subtasks:", because that's wrong if
+            # subtasks == []
             if verbose>2:
                 print('depth {} new tasks: {}'.format(depth,subtasks))
             if subtasks != False:
-                solution = seek_plan(state,subtasks+tasks[1:],plan,depth+1,verbose)
+                solution = seek_plan(
+                    state,subtasks+tasks[1:],plan,depth+1,verbose)
                 if solution != False:
                     return solution
     if verbose>2: print('depth {} returns failure'.format(depth))
