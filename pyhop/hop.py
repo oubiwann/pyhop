@@ -1,5 +1,5 @@
 """
-Pyhop, version 1.2.2 -- a simple SHOP-like planner written in Python.
+Pyhop, version 2.0 -- a simple SHOP-like planner written in Python.
 Author: Dana S. Nau, 2013.05.31
 
 Copyright 2013 Dana S. Nau - http://www.cs.umd.edu/~nau
@@ -93,10 +93,9 @@ Pyhop provides the following classes and functions:
 # Accompanying this file are several files that give examples of how to use
 # Pyhop. To run them, launch python and type "import blocks_world_examples"
 # or "import simple_travel_example".
-
-
 from __future__ import print_function
-import copy,sys, pprint
+import copy, sys, pprint
+
 
 ############################################################
 # States and goals
