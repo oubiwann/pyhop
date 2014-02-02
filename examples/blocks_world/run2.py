@@ -173,10 +173,6 @@ print('')
 
 hop.plan(state3,[('move_blocks', goal3)], verbose=1)
 
-
-
-
-
 hop.print_methods(hop.get_methods())
 
 print("""\n=== In the next call to pyhop, it should backtrack:
