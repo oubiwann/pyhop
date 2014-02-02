@@ -26,7 +26,8 @@ First, test pyhop on some of the operators and smaller tasks
 print("- Define state1: a on b, b on tale, c on table")
 
 """
-A state is a collection of all of the state variables and their values. Every state variable in the domain should have a value.
+A state is a collection of all of the state variables and their values. Every
+state variable in the domain should have a value.
 """
 
 state1 = hop.State('state1')
@@ -61,7 +62,10 @@ anyway, so both goals should produce the same plan.
 print("- Define goal1a:")
 
 """
-A goal is a collection of some (but not necessarily all) of the state variables and their desired values. Below, both goal1a and goal1b specify c on b, and b on a. The difference is that goal1a also specifies that a is on table and the hand is empty.
+A goal is a collection of some (but not necessarily all) of the state variables
+and their desired values. Below, both goal1a and goal1b specify c on b, and b
+on a. The difference is that goal1a also specifies that a is on table and the
+hand is empty.
 """
 
 goal1a = hop.Goal('goal1a')
@@ -139,7 +143,9 @@ Test pyhop on planning problem bw_large_d from the SHOP distribution.
 print("- Define state3:")
 
 state3 = hop.State('state3')
-state3.pos = {1:12, 12:13, 13:'table', 11:10, 10:5, 5:4, 4:14, 14:15, 15:'table', 9:8, 8:7, 7:6, 6:'table', 19:18, 18:17, 17:16, 16:3, 3:2, 2:'table'}
+state3.pos = {1:12, 12:13, 13:'table', 11:10, 10:5, 5:4, 4:14, 14:15,
+              15:'table', 9:8, 8:7, 7:6, 6:'table', 19:18, 18:17, 17:16,
+              16:3, 3:2, 2:'table'}
 state3.clear = {x:False for x in range(1,20)}
 state3.clear.update({1:True, 11:True, 9:True, 19:True})
 state3.holding = False
@@ -150,7 +156,8 @@ print('')
 print("- Define goal3:")
 
 goal3 = hop.Goal('goal3')
-goal3.pos = {15:13, 13:8, 8:9, 9:4, 4:'table', 12:2, 2:3, 3:16, 16:11, 11:7, 7:6, 6:'table'}
+goal3.pos = {15:13, 13:8, 8:9, 9:4, 4:'table', 12:2, 2:3, 3:16, 16:11, 11:7,
+             7:6, 6:'table'}
 goal3.clear = {17:True, 15:True, 12:True}
 
 hop.print_goal(goal3)

@@ -38,8 +38,6 @@ hop.declare_operators(walk, call_taxi, ride_taxi, pay_driver)
 print('')
 hop.print_operators()
 
-
-
 def travel_by_foot(state,a,x,y):
     if state.dist[x][y] <= 2:
         return [('walk',a,x,y)]
