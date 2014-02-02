@@ -19,9 +19,9 @@ cause backtracking.
 
 
 print('')
-hop.print_operators()
+hop.print_operators(hop.get_operators())
 print('')
-hop.print_methods()
+hop.print_methods(hop.get_methods())
 
 #############     beginning of tests     ################
 
@@ -177,7 +177,7 @@ hop.plan(state3,[('move_blocks', goal3)], verbose=1)
 
 
 
-hop.print_methods()
+hop.print_methods(hop.get_methods())
 
 print("""\n=== In the next call to pyhop, it should backtrack:
 the recursion depth should go up, then down, then up again.===\n""")

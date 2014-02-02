@@ -11,9 +11,9 @@ import methods1
 
 
 print('')
-hop.print_operators()
+hop.print_operators(hop.get_operators())
 print('')
-hop.print_methods()
+hop.print_methods(hop.get_methods())
 
 #############     beginning of tests     ################
 
