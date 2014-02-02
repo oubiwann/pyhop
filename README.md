@@ -1,10 +1,10 @@
 # PyHOP, version 2.0
 
-A simple hierarchical task network (HTN) planning system written in Python
+A Hierarchical Ordered Planner for Python
 
 ## Introduction
 
-PyHOP is a simple HTN planner written in Python. It works in both Python 2.7 and 3.2.
+PyHOP is a simple hierarchical task network (HTN) planner written in Python. It works in both Python 2.7 and 3.2.
 
 PyHOP was easy to implement (less than 150 lines of code), and if you understand the basic ideas of HTN planning ([this presentation](http://www.cs.umd.edu/~nau/papers/nau2013game.pdf) contains a quick summary),
 PyHOP should be easy to understand.
