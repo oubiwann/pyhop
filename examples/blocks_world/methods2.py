@@ -54,7 +54,7 @@ def moveb_m(state,goal):
             continue
     #
     # if we get here, no blocks can be moved to their final locations
-    b1 = hop.find_if(
+    b1 = helpers.find_if(
         lambda x: status(x,state,goal,'table') == 'waiting',
         helpers.all(state))
     if b1 != None:
