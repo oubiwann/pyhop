@@ -43,6 +43,8 @@ $ python examples/blocks_world/run1.py
 $ python examples/blocks_world/run2.py
 ```
 
+NOTE: right now there are no unit tests; successful functioning of these examples are rudimentary integration tests. More tests 
+will be written in the future.
 
 ## Changes from Version 1
 
