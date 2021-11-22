@@ -17,10 +17,18 @@ PyHOP's planning algorithm is like the one in [SHOP](http://www.cs.umd.edu/proje
 
 ## Installation
 
+Ideally PyHOP will be installed in a virtual (e.g., conda) environment. 
+For example,
+
++ `conda create --name=pyhop python=3.9`
++ `conda activate pyhop`
+
+Now, using the virtual environment, we can install the library:
+
 ```bash
 $ git clone https://github.com/oubiwann/pyhop.git
 $ cd pyhop
-$ sudo python setup.py install
+$ /opt/anaconda3/envs/pyhop/bin/python -m pip install .
 ```
 
 ## Examples
@@ -35,6 +43,8 @@ $ python examples/blocks_world/run1.py
 $ python examples/blocks_world/run2.py
 ```
 
+NOTE: right now there are no unit tests; successful functioning of these examples are rudimentary integration tests. More tests 
+will be written in the future.
 
 ## Changes from Version 1
 

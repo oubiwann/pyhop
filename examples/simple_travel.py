@@ -4,6 +4,7 @@ Author: Dana Nau <nau@cs.umd.edu>, May 31, 2013
 This file should work correctly in both Python 2.7 and Python 3.2.
 """
 from pyhop import hop
+from pyhop import helpers
 
 
 def taxi_rate(dist):
@@ -36,7 +37,7 @@ def pay_driver(state,a):
 
 hop.declare_operators(walk, call_taxi, ride_taxi, pay_driver)
 print('')
-hop.print_operators(hop.get_operators())
+helpers.print_operators(hop.get_operators())
 
 def travel_by_foot(state,a,x,y):
     if state.dist[x][y] <= 2:
@@ -50,7 +51,7 @@ def travel_by_taxi(state,a,x,y):
 
 hop.declare_methods('travel',travel_by_foot,travel_by_taxi)
 print('')
-hop.print_methods(hop.get_methods())
+helpers.print_methods(hop.get_methods())
 
 state1 = hop.State('state1')
 state1.loc = {'me':'home'}

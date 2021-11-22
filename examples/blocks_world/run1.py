@@ -4,16 +4,16 @@ Author: Dana Nau <nau@cs.umd.edu>, November 15, 2012
 This file should work correctly in both Python 2.7 and Python 3.2.
 """
 from __future__ import print_function
-from pyhop import hop
+from pyhop import hop, helpers
 
 import operators
 import methods1
 
 
 print('')
-hop.print_operators(hop.get_operators())
+helpers.print_operators(hop.get_operators())
 print('')
-hop.print_methods(hop.get_methods())
+helpers.print_methods(hop.get_methods())
 
 #############     beginning of tests     ################
 
@@ -35,7 +35,7 @@ state1.pos={'a':'b', 'b':'table', 'c':'table'}
 state1.clear={'c':True, 'b':False,'a':True}
 state1.holding=False
 
-hop.print_state(state1)
+helpers.print_state(state1)
 print('')
 
 print('- these should fail:')
@@ -73,7 +73,7 @@ goal1a.pos={'c':'b', 'b':'a', 'a':'table'}
 goal1a.clear={'c':True, 'b':False, 'a':False}
 goal1a.holding=False
 
-hop.print_goal(goal1a)
+helpers.print_goal(goal1a)
 print('')
 
 print("- Define goal1b:")
@@ -81,7 +81,7 @@ print("- Define goal1b:")
 goal1b = hop.Goal('goal1b')
 goal1b.pos={'c':'b', 'b':'a'}
 
-hop.print_goal(goal1b)
+helpers.print_goal(goal1b)
 
 ### goal1b omits some of the conditions of goal1a,
 ### but those conditions will need to be achieved anyway
@@ -105,7 +105,7 @@ state2.pos={'a':'c', 'b':'d', 'c':'table', 'd':'table'}
 state2.clear={'a':True, 'c':False,'b':True, 'd':False}
 state2.holding=False
 
-hop.print_state(state2)
+helpers.print_state(state2)
 print('')
 
 print("- Define goal2a:")
@@ -115,7 +115,7 @@ goal2a.pos={'b':'c', 'a':'d', 'c':'table', 'd':'table'}
 goal2a.clear={'a':True, 'c':False,'b':True, 'd':False}
 goal2a.holding=False
 
-hop.print_goal(goal2a)
+helpers.print_goal(goal2a)
 print('')
 
 print("- Define goal2b:")
@@ -123,7 +123,7 @@ print("- Define goal2b:")
 goal2b = hop.Goal('goal2b')
 goal2b.pos={'b':'c', 'a':'d'}
 
-hop.print_goal(goal2b)
+helpers.print_goal(goal2b)
 print('')
 
 
@@ -150,7 +150,7 @@ state3.clear = {x:False for x in range(1,20)}
 state3.clear.update({1:True, 11:True, 9:True, 19:True})
 state3.holding = False
 
-hop.print_state(state3)
+helpers.print_state(state3)
 print('')
 
 print("- Define goal3:")
@@ -160,7 +160,7 @@ goal3.pos = {15:13, 13:8, 8:9, 9:4, 4:'table', 12:2, 2:3, 3:16, 16:11, 11:7,
              7:6, 6:'table'}
 goal3.clear = {17:True, 15:True, 12:True}
 
-hop.print_goal(goal3)
+helpers.print_goal(goal3)
 print('')
 
 hop.plan(state3,[('move_blocks', goal3)], hop.get_operators(), hop.get_methods(), verbose=1)
