@@ -29,9 +29,9 @@ Pyhop provides the following classes and functions:
   To put variables and values into it, you should do assignments such as
   bar.var1 = val1
 
-- print_state(foo) will print the variables and values in the state foo.
+- helpers.print_state(foo) will print the variables and values in the state foo.
 
-- print_goal(foo) will print the variables and values in the goal foo.
+- helpers.print_goal(foo) will print the variables and values in the goal foo.
 
 - declare_operators(o1, o2, ..., ok) tells Pyhop that o1, o2, ..., ok
   are all of the planning operators; this supersedes any previous call
@@ -43,7 +43,7 @@ Pyhop provides the following classes and functions:
   are all of the methods for tasks having 'foo' as their taskname; this
   supersedes any previous call to declare_methods('foo', ...).
 
-- print_methods() will print out a list of all declared methods.
+- helpers.print_methods() will print out a list of all declared methods.
 
 - plan(state1,tasklist) tells Pyhop to find a plan for accomplishing tasklist
   (a list of tasks), starting from an initial state state1, using whatever
@@ -96,19 +96,20 @@ Pyhop provides the following classes and functions:
 from __future__ import print_function
 import copy
 
-from pyhop.helpers import (
-    print_goal, print_methods, print_operators, print_state)
+# from pyhop.helpers import (
+#     helpers.print_goal, print_methods, helpers.print_operators, helpers.print_state)
+from . import helpers
 
 
 ############################################################
 # States and goals
 
-class State():
+class State:
     """A state is just a collection of variable bindings."""
     def __init__(self,name):
         self.__name__ = name
 
-class Goal():
+class Goal:
     """A goal is just a collection of variable bindings."""
     def __init__(self,name):
         self.__name__ = name
@@ -164,7 +165,7 @@ def search_operators(state,tasks,operators,methods,plan,task,depth,verbose):
     newstate = operator(copy.deepcopy(state),*task[1:])
     if verbose>2:
         print('depth {} new state:'.format(depth))
-        print_state(newstate)
+        helpers.print_state(newstate)
     if newstate:
         solution = seek_plan(
             newstate,tasks[1:],operators,methods,plan+[task],depth+1,verbose)
